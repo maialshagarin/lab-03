@@ -1,0 +1,30 @@
+  header h1 {
+      text-align: center;
+      margin-top: 2%;
+      font-size: 40px;
+      position: relative;
+  }
+  select{
+width : 200px ;
+white-space: normal;
+height: 30px;
+text-align: center ;
+margin-left: 43%;
+margin-top: 3%;
+
+}
+nav{
+  text-align: center;
+  margin-top: 6%;
+}
+div {
+    float: left;
+    height: 300px;
+    margin: 5em;
+    width: 250px;
+    text-align: center;
+  }
+  
+  main {
+    overflow:hidden;
+  }

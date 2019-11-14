@@ -33,38 +33,50 @@ function render() {
 }
 
 
+function readData(pageNumber='page-1') {
+  $('main').html('');
+  ItemAll.length = 0;
+  $.get(`./data/${pageNumber}.json`, data => {
+     data.forEach(obj => {
+       new Item(obj);
+     });
+   })
+   .then(() => {sortByTitle(ItemAll)})
+   .then(render);
+ }
 
 
-  function firstJason (){
-  $.get('../data/page-1.json')
-    .then( data => {
-      data.forEach( (thing) => {
-        let horn = new Horns(thing);
-        horn.render();
-        selecter()
-      });
-    })
-    .then( () => populateSelectBox() );
-  }
-  $('#page-1').on('click', function(){
-    $('section').fadeOut();
-    $(() => firstJason());
-  });
-  
-  function secondJason (){
-  
-    $.get('../data/page-2.json')
-      .then( data => {
-        data.forEach( (thing) => {
-          let horn = new Horns(thing);
-          horn.render();
-          selecter()
-        });
-      })
-      .then( () => populateSelectBox() );
+ function sortByTitle(array) {
+  array.sort((a, b) => {
+    if (a.title > b.title) {
+      return 1;
     }
-    $('#page-2').on('click', function(){
-      $('section').fadeOut();
-      $(() => secondJason());
-    });
-  
+    else if (a.title < b.title) {
+      return -1;
+    }
+    else {return 0;}
+  });
+}
+
+
+
+readData(); 
+
+$('select').on('change', function(){
+  let $select = $(this).val();
+  $('div').hide();
+  $(`div[data-keyword="${$select}"]`).show();
+});
+
+$('button[value="page1"]').on('click', () => {
+  readData('page-1');
+});
+$('button[value="page2"]').on('click', () => {
+  readData('page-2');
+});
+
+$('button[value="sortKeyword"]').on('click', () => {
+  $('main').html('');
+  sortByTitle(ItemAll);
+  render();
+});

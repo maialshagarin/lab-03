@@ -1,0 +1,49 @@
+select{
+    display: block;
+    margin:  auto;
+    transition: 0.8s;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  nav{
+    padding: 20px;
+ }
+ button{
+    padding: 10px 20px;
+    border: #3498db solid 2px;
+    background-color: #4b4075;
+    color: #3498db;
+    font-family: cursive;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.8s;
+ }
+ button:hover{
+    border: #fff solid 2px;
+    background-color: #3498db;
+    color: #4b4075;
+    border-radius: 100%;
+    text-shadow: white 3px 3px 6px, 6px 6px 12px;
+ }
+  select:hover{
+      background-color: #3498db;
+      color: white;
+  }
+  #photo-template:first-child {
+      display: none;
+  }
+  div{
+    float: left;
+    border: 1px solid #4b4075;
+    max-height: 350px;
+    text-align: center;
+    padding: 5px;
+    margin: 5px;
+    width: 30%;
+    height: 350px;
+    margin-bottom: 60px;
+ }
+ p{
+    margin-top: -10px;
+    width: 100%;
+ }

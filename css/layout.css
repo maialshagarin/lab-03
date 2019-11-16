@@ -1,4 +1,7 @@
-
+main {
+  flex-wrap: wrap;
+    display: flex;
+}
 header{
   background-color: #4b4075;
   margin: 30px auto;

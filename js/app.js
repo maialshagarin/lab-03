@@ -58,6 +58,12 @@ function readData(pageNumber='page-1') {
   });
 }
 
+function sortByHorns(array) {
+ 
+ array.sort((a, b) => a.horns - b.horns);
+
+}
+
 
 
 readData(); 
@@ -79,4 +85,10 @@ $('button[value="sortKeyword"]').on('click', () => {
   $('main').html('');
   sortByTitle(ItemAll);
   render();
+});
+$('button[value="sortKeyword2"]').on('click', () => {
+  $('main').html('');
+    sortByHorns(ItemAll);
+    render();
+
 });
